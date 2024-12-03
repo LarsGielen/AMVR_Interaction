@@ -3463,7 +3463,7 @@ PrefabInstance:
     - target: {fileID: 863512645795027999, guid: bb91fcbcb3cc896468b372b1c762bfab, type: 3}
       propertyPath: m_Renderer
       value: 
-      objectReference: {fileID: 255063491866285309}
+      objectReference: {fileID: 0}
     - target: {fileID: 5964744442239762404, guid: bb91fcbcb3cc896468b372b1c762bfab, type: 3}
       propertyPath: m_InteractorSource
       value: 
@@ -3471,7 +3471,7 @@ PrefabInstance:
     - target: {fileID: 6212858538863823644, guid: bb91fcbcb3cc896468b372b1c762bfab, type: 3}
       propertyPath: m_Renderer
       value: 
-      objectReference: {fileID: 255063491866285309}
+      objectReference: {fileID: 0}
     - target: {fileID: 6707959385038857591, guid: bb91fcbcb3cc896468b372b1c762bfab, type: 3}
       propertyPath: m_InteractorSource
       value: 
@@ -4609,11 +4609,6 @@ PrefabInstance:
       addedObject: {fileID: 8840000343749535291}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27024f5809f4a4347b9cd7f26a1bdf93, type: 3}
---- !u!137 &255063491866285309 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7163876590946616089, guid: 27024f5809f4a4347b9cd7f26a1bdf93, type: 3}
-  m_PrefabInstance: {fileID: 6980888562388457444}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1332679343087362343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8259524632637961923, guid: 27024f5809f4a4347b9cd7f26a1bdf93, type: 3}
@@ -4989,7 +4984,7 @@ PrefabInstance:
     - target: {fileID: 863512645795027999, guid: bb91fcbcb3cc896468b372b1c762bfab, type: 3}
       propertyPath: m_Renderer
       value: 
-      objectReference: {fileID: 1925902069472644102}
+      objectReference: {fileID: 0}
     - target: {fileID: 5964744442239762404, guid: bb91fcbcb3cc896468b372b1c762bfab, type: 3}
       propertyPath: m_InteractorSource
       value: 
@@ -4997,7 +4992,7 @@ PrefabInstance:
     - target: {fileID: 6212858538863823644, guid: bb91fcbcb3cc896468b372b1c762bfab, type: 3}
       propertyPath: m_Renderer
       value: 
-      objectReference: {fileID: 1925902069472644102}
+      objectReference: {fileID: 0}
     - target: {fileID: 6707959385038857591, guid: bb91fcbcb3cc896468b372b1c762bfab, type: 3}
       propertyPath: m_InteractorSource
       value: 
@@ -5210,11 +5205,6 @@ PrefabInstance:
 --- !u!4 &814772835439229404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8259524632637961923, guid: 27024f5809f4a4347b9cd7f26a1bdf93, type: 3}
-  m_PrefabInstance: {fileID: 8777830648544448287}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &1925902069472644102 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7163876590946616089, guid: 27024f5809f4a4347b9cd7f26a1bdf93, type: 3}
   m_PrefabInstance: {fileID: 8777830648544448287}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6367298797842464782 stripped
