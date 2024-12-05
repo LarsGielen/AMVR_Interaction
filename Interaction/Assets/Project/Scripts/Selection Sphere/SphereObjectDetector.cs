@@ -5,55 +5,70 @@ namespace Project.SelectionSphere
 {
     public class SphereObjectDetector : MonoBehaviour
     {
-        [SerializeField] private GameObject dummySphere; // Reference to the dummy sphere
+        [SerializeField] private Transform copySphere; // Reference to the dummy sphere
         [SerializeField] private LayerMask detectionLayer; // Layer for objects to detect (e.g., "Selectable Items")
 
-        private List<GameObject> copiedItems = new List<GameObject>();
-        private SphereCollider sphereCollider; // Reference to the real sphere's collider
+        private Dictionary<GameObject, GameObject> copiedItems = new Dictionary<GameObject, GameObject>();
 
         void Awake()
         {
-            if (dummySphere == null)
+            if (copySphere == null)
             {
                 Debug.LogError("Dummy Sphere is not assigned! Please assign it in the Inspector.");
-            }
-
-            sphereCollider = GetComponent<SphereCollider>();
-            if (!sphereCollider)
-            {
-                Debug.LogError("SphereCollider is missing on this GameObject!");
             }
         }
 
         void Update()
         {
-            if (sphereCollider == null) return;
-
-            float detectionRadius = sphereCollider.radius * transform.localScale.x; // Adjust for scaling
-
             // Detect objects within the sphere
-            Collider[] detectedColliders = Physics.OverlapSphere(transform.position, detectionRadius, detectionLayer);
+            Collider[] detectedColliders = Physics.OverlapSphere(transform.position, transform.localScale.x / 2, detectionLayer);
+            HashSet<GameObject> currentlyDetected = new HashSet<GameObject>();
 
-            // Clear previous copies
-            ClearDummySphere();
-
-            // Copy detected objects to the dummy sphere
+            // Process detected objects
             foreach (var collider in detectedColliders)
             {
-                CopyObjectToDummySphere(collider.gameObject, detectionRadius);
+                GameObject original = collider.gameObject;
+                currentlyDetected.Add(original);
+
+                if (copiedItems.ContainsKey(original))
+                {
+                    // Update position of the existing copy
+                    UpdateCopyPosition(original);
+                }
+                else
+                {
+                    // Create a new copy
+                    CreateCopy(original);
+                }
+            }
+
+            // Remove copies of objects no longer detected
+            List<GameObject> toRemove = new List<GameObject>();
+            foreach (var original in copiedItems.Keys)
+            {
+                if (!currentlyDetected.Contains(original))
+                {
+                    Destroy(copiedItems[original]);
+                    toRemove.Add(original);
+                }
+            }
+
+            foreach (var original in toRemove)
+            {
+                copiedItems.Remove(original);
             }
         }
 
-        void CopyObjectToDummySphere(GameObject original, float detectionRadius)
+        void CreateCopy(GameObject original)
         {
             // Duplicate the object
             GameObject duplicate = Instantiate(original);
 
             // Calculate the scale ratio between the original and dummy sphere
-            float scaleRatio = dummySphere.GetComponent<SphereCollider>().radius * dummySphere.transform.localScale.x / detectionRadius;
+            float scaleRatio = copySphere.localScale.x / transform.localScale.x;
 
             // Position the duplicate relative to the dummy sphere
-            duplicate.transform.position = dummySphere.transform.position + (original.transform.position - transform.position) * scaleRatio;
+            duplicate.transform.position = copySphere.position + (original.transform.position - transform.position) * scaleRatio;
 
             // Adjust the scale of the duplicate
             duplicate.transform.localScale = original.transform.localScale * scaleRatio;
@@ -61,27 +76,28 @@ namespace Project.SelectionSphere
             // Match rotation
             duplicate.transform.rotation = original.transform.rotation;
 
-            // Add to the list of copied items
-            copiedItems.Add(duplicate);
+            duplicate.AddComponent<CorrespondMovement>().Init(original.transform);
+
+            // Add the original and its duplicate to the dictionary
+            copiedItems[original] = duplicate;
         }
 
-        void ClearDummySphere()
+        void UpdateCopyPosition(GameObject original)
         {
-            // Destroy all previously copied items
-            foreach (var item in copiedItems)
+            if (copiedItems.TryGetValue(original, out var duplicate))
             {
-                Destroy(item);
+                // Calculate the scale ratio between the original and dummy sphere
+                float scaleRatio = copySphere.localScale.x / transform.localScale.x;
+
+                // Update the position of the duplicate
+                duplicate.transform.position = copySphere.position + (original.transform.position - transform.position) * scaleRatio;
             }
-            copiedItems.Clear();
         }
 
-        void OnDrawGizmos()
+        private void OnDrawGizmosSelected()
         {
-            if (sphereCollider != null)
-            {
-                Gizmos.color = Color.blue;
-                Gizmos.DrawWireSphere(transform.position, sphereCollider.radius * transform.localScale.x);
-            }
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(copySphere.position, copySphere.localScale.x / 2);
         }
     }
 }
