@@ -98,8 +98,10 @@ namespace Project.SelectionSphere
             if (isMoveMode) {
                 _interactors = FindObjectsOfType<XRBaseInputInteractor>(true);
                 _defaultLayerMasks = new InteractionLayerMask[_interactors.Length];
-                foreach (var interactor in _interactors) 
-                    interactor.interactionLayers = _selectionSphereLayerMask;
+                for (int i = 0; i < _interactors.Length; i++) {
+                    _defaultLayerMasks[i] = _interactors[i].interactionLayers;
+                    _interactors[i].interactionLayers = _selectionSphereLayerMask;
+                } 
                 _sphere.SetColor(_moveModeColor, _moveModeHighlightColor);
             }
             else if (_interactors != null) {
