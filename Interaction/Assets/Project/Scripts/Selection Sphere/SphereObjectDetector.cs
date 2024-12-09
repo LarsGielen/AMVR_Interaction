@@ -14,7 +14,7 @@ namespace Project.SelectionSphere
         {
             if (copySphere == null)
             {
-                Debug.LogError("Dummy Sphere is not assigned! Please assign it in the Inspector.");
+                Debug.LogError("Dummy Sphere is not assigned");
             }
         }
 
