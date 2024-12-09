@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Project.SelectionSphere
@@ -20,11 +21,9 @@ namespace Project.SelectionSphere
 
         void Update()
         {
-            // Detect objects within the sphere
             Collider[] detectedColliders = Physics.OverlapSphere(transform.position, transform.localScale.x / 2, detectionLayer);
             HashSet<GameObject> currentlyDetected = new HashSet<GameObject>();
 
-            // Process detected objects
             foreach (var collider in detectedColliders)
             {
                 GameObject original = collider.gameObject;
@@ -33,6 +32,7 @@ namespace Project.SelectionSphere
                 if (copiedItems.ContainsKey(original))
                 {
                     // Update position of the existing copy
+                    Debug.Log("Update copy position");
                     UpdateCopyPosition(original);
                 }
                 else
@@ -42,20 +42,13 @@ namespace Project.SelectionSphere
                 }
             }
 
-            // Remove copies of objects no longer detected
-            List<GameObject> toRemove = new List<GameObject>();
-            foreach (var original in copiedItems.Keys)
+           foreach (var kvp in copiedItems.ToArray())
             {
-                if (!currentlyDetected.Contains(original))
+                if (!currentlyDetected.Contains(kvp.Key))
                 {
-                    Destroy(copiedItems[original]);
-                    toRemove.Add(original);
+                    Destroy(kvp.Value);
+                    copiedItems.Remove(kvp.Key);
                 }
-            }
-
-            foreach (var original in toRemove)
-            {
-                copiedItems.Remove(original);
             }
         }
 
