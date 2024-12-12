@@ -8,6 +8,9 @@ namespace Project.SelectionSphere
         [SerializeField] private Transform copySphere; // Reference to the dummy sphere
         [SerializeField] private LayerMask detectionLayer; // Layer for objects to detect (e.g., "Selectable Items")
 
+        private Vector3 previousSelectionSpherePosition;
+        private Vector3 previousSelectionSphereScale;
+
         private List<GameObject> copiedItems = new List<GameObject>();
 
         void Awake()
@@ -20,6 +23,12 @@ namespace Project.SelectionSphere
 
         void Update()
         {
+            if (previousSelectionSpherePosition == transform.position && previousSelectionSphereScale == transform.localScale)
+                return;
+
+            previousSelectionSpherePosition = transform.position;
+            previousSelectionSphereScale = transform.localScale;
+
             // Detect objects within the sphere
             Collider[] detectedColliders = Physics.OverlapSphere(transform.position, transform.localScale.x / 2, detectionLayer);
 
