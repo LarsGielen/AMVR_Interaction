@@ -23,10 +23,17 @@ namespace Project.SelectionSphere
         [SerializeField] private Button _scaleUp;
         [SerializeField] private Button _scaleDown;
 
+        [SerializeField] private Slider _moveSpeedSlider;
+        [SerializeField] private Slider _scaleSpeedSlider;
+
         private void Awake() {
             if (_selectionSphereManager == null) _selectionSphereManager = FindObjectOfType<SelectionSphereManager>();
             Assert.IsNotNull(_selectionSphereManager, "selectionSphereManager can't be null, add one in the scene");
             SetupButtonActions();
+            SetupSliderActions();
+
+            _moveSpeedSlider.value = _selectionSphereManager.MoveSpeed;
+            _scaleSpeedSlider.value = _selectionSphereManager.ScaleSpeed;
         }
 
         private void Update() {
@@ -68,6 +75,11 @@ namespace Project.SelectionSphere
             CreateOnPointerUpEvent(_moveRightButton, () => _selectionSphereManager.SphereMoveDirection = Vector3.zero);
             CreateOnPointerUpEvent(_scaleUp,   () => _selectionSphereManager.SphereScaleDirection = 0);
             CreateOnPointerUpEvent(_scaleDown, () => _selectionSphereManager.SphereScaleDirection = 0);
+        }
+
+        private void SetupSliderActions() {
+            _moveSpeedSlider.onValueChanged.AddListener((context) => _selectionSphereManager.MoveSpeed = _moveSpeedSlider.value);
+            _scaleSpeedSlider.onValueChanged.AddListener((context) => _selectionSphereManager.ScaleSpeed = _scaleSpeedSlider.value);
         }
 
         private void CreateOnPointerUpEvent(Button button, Action function) {

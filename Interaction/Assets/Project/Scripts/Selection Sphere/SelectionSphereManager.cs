@@ -24,6 +24,7 @@ namespace Project.SelectionSphere
         [Header("Actions")]
         [SerializeField] private InputAction _toggleMoveModeAction;
         [SerializeField] private InputAction _toggleRelativeModeAction;
+        [SerializeField] private InputAction _toggleDynamicSpeed;
         [SerializeField] private InputAction _horizontalMovementAction;
         [SerializeField] private InputAction _scaleAction;
 
@@ -31,7 +32,9 @@ namespace Project.SelectionSphere
         private InteractionLayerMask[] _defaultLayerMasks;
 
         private bool _isMoveMode;
-        private bool _isRelativeMoveMode;
+        private bool _isRelativeMoveMode = true;
+        private bool _isDynamicSpeed = true;
+
         private Vector3 _moveDirection;
         private float _scaleDirection;
 
@@ -41,6 +44,9 @@ namespace Project.SelectionSphere
         public float SphereScaleDirection { get => _scaleDirection; set => _scaleDirection = value; }
         public bool IsMoveMode { get => _isMoveMode; set => SetMoveMode(value); }
         public bool IsRelativeMode { get => _isRelativeMoveMode; set => _isRelativeMoveMode = value; }
+
+        public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
+        public float ScaleSpeed { get => _scaleSpeed; set => _scaleSpeed = value; }
         #endregion
 
         #region Unity Functions
@@ -67,6 +73,7 @@ namespace Project.SelectionSphere
 
             _toggleMoveModeAction.performed += context => { SetMoveMode(!_isMoveMode); };
             _toggleRelativeModeAction.performed += context => { _isRelativeMoveMode = !_isRelativeMoveMode; };
+            _toggleDynamicSpeed.performed += context => { _isDynamicSpeed = !_isDynamicSpeed; };
             _horizontalMovementAction.performed += context => { _moveDirection = context.ReadValue<Vector3>(); };
             _scaleAction.performed += context => { _scaleDirection = context.ReadValue<float>(); };
 
@@ -76,13 +83,20 @@ namespace Project.SelectionSphere
         private void UpdateMoveSphere() {
             if (!_isMoveMode) return;
 
-            _sphere.IncrementPosition((_isRelativeMoveMode ? Quaternion.Euler(0, _camera.transform.rotation.eulerAngles.y, 0) * _moveDirection : _moveDirection) * _moveSpeed * Time.deltaTime);
+            _sphere.IncrementPosition(
+                (_isRelativeMoveMode ? Quaternion.Euler(0, _camera.transform.rotation.eulerAngles.y, 0) 
+                * _moveDirection : _moveDirection) 
+                * _moveSpeed 
+                * Time.deltaTime
+                * (_isDynamicSpeed ? _sphere.transform.localScale.x : 1)
+            );
             _sphere.IncrementSize(_scaleDirection * _scaleSpeed * Time.deltaTime); 
         }
 
         private void EnableInputActions() {
             _toggleMoveModeAction.Enable();
             _toggleRelativeModeAction.Enable();
+            _toggleDynamicSpeed.Enable();
             _horizontalMovementAction.Enable();
             _scaleAction.Enable();
         }
@@ -90,6 +104,7 @@ namespace Project.SelectionSphere
         private void DisableInputActions() {
             _toggleMoveModeAction.Disable();
             _toggleRelativeModeAction.Disable();
+            _toggleDynamicSpeed.Disable();
             _horizontalMovementAction.Disable();
             _scaleAction.Disable();
         }

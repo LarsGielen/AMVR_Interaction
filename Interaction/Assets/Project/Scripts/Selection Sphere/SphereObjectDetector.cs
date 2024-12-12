@@ -49,7 +49,6 @@ namespace Project.SelectionSphere
 
             // Calculate the scale ratio between the original and dummy sphere
             float scaleRatio = copySphere.localScale.x / transform.localScale.x;
-            Debug.Log(scaleRatio);
 
             // Position the duplicate relative to the dummy sphere
             duplicate.transform.position = copySphere.position + (original.transform.position - transform.position) * scaleRatio;

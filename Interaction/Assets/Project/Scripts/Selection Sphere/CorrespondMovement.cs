@@ -21,6 +21,8 @@ public class CorrespondMovement : MonoBehaviour
         grabInteractable.selectEntered.AddListener(OnGrabbed);
         grabInteractable.selectExited.AddListener(OnReleased);
         previousPosition = transform.position;
+
+        grabInteractable.selectEntered.AddListener((args) => RemoveReference(args));
     }
 
     // Update is called once per frame
@@ -39,6 +41,14 @@ public class CorrespondMovement : MonoBehaviour
     }
 
     public void Init(Transform reference) => referenceTransform = reference;
+
+    public void RemoveReference(SelectEnterEventArgs args) {
+        var interactionManager = grabInteractable.interactionManager;
+        if (interactionManager != null)
+            interactionManager.SelectExit(args.interactorObject, grabInteractable);
+            interactionManager.SelectEnter(args.interactorObject, referenceTransform.gameObject.GetComponent<XRGrabInteractable>());
+        Destroy(this.gameObject);
+    }
 
     private void OnGrabbed(SelectEnterEventArgs arg0) => holdingItem = true;
     private void OnReleased(SelectExitEventArgs arg0) => holdingItem = false;

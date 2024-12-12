@@ -677,6 +677,23 @@ MonoBehaviour:
       m_Action: Toggle Relative Mode
       m_Flags: 0
     m_Flags: 0
+  _toggleDynamicSpeed:
+    m_Name: Toggle Dynamic Speed
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8ad384b9-e10d-40f5-a65e-86191645b75b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 647ccbf7-22a2-4b85-83cd-8ddb4a5833a4
+      m_Path: <Keyboard>/p
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Toggle Dynamic Speed
+      m_Flags: 0
+    m_Flags: 0
   _horizontalMovementAction:
     m_Name: Horizontal Movement
     m_Type: 2
@@ -1040,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 688260151346908029, guid: f12898f9b9b4a374f9085b1795cc50c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.392
       objectReference: {fileID: 0}
     - target: {fileID: 688260151346908029, guid: f12898f9b9b4a374f9085b1795cc50c5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1174,10 +1191,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1064850734}
     m_Modifications:
+    - target: {fileID: 1129610912676359557, guid: 2cf8ff2cfefe7eb4f9cba0f3cf9d4829, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1434780788679202749, guid: 2cf8ff2cfefe7eb4f9cba0f3cf9d4829, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 659355045}
+    - target: {fileID: 1623317608976957573, guid: 2cf8ff2cfefe7eb4f9cba0f3cf9d4829, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043550747317674992, guid: 2cf8ff2cfefe7eb4f9cba0f3cf9d4829, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3086207782308183731, guid: 2cf8ff2cfefe7eb4f9cba0f3cf9d4829, type: 3}
       propertyPath: m_Name
       value: Hand Menu
@@ -1186,6 +1215,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 659355045}
+    - target: {fileID: 5369438849295000101, guid: 2cf8ff2cfefe7eb4f9cba0f3cf9d4829, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5716714046919173706, guid: 2cf8ff2cfefe7eb4f9cba0f3cf9d4829, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
