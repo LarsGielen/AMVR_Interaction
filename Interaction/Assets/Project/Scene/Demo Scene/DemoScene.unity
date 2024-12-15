@@ -589,209 +589,11 @@ MonoBehaviour:
   m_Teleporting:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1618051048
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1618051049}
-  - component: {fileID: 1618051050}
-  m_Layer: 0
-  m_Name: Selection Sphere Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1618051049
+--- !u!4 &1618051049 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 82651200783705762, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+  m_PrefabInstance: {fileID: 7245618854534753820}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618051048}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 193844611}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1618051050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618051048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e87cf4842e114849bcc360ea4618eac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sphere: {fileID: 322028054}
-  _camera: {fileID: 659355045}
-  _selectionSphereLayerMask:
-    m_Bits: 2
-  _moveSpeed: 5
-  _scaleSpeed: 5
-  _moveModeColor: {r: 0, g: 1, b: 0, a: 0.1764706}
-  _moveModeHighlightColor: {r: 0, g: 32, b: 0, a: 45}
-  _normalModeColor: {r: 0, g: 1, b: 1, a: 0.1764706}
-  _normalModeHighLightColor: {r: 0, g: 32, b: 32, a: 45}
-  _toggleMoveModeAction:
-    m_Name: Toggle Move Mode
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: 5a939ad3-2c91-47bc-be63-ea6801333b16
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 6e7fe547-fe3b-4d0c-b46e-b37cb3339c81
-      m_Path: <Keyboard>/semicolon
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Toggle Move Mode
-      m_Flags: 0
-    m_Flags: 0
-  _toggleRelativeModeAction:
-    m_Name: Toggle Relative Mode
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: b49cf762-063e-40e7-a36d-9db8a20d799b
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 4118335d-dcf3-4c23-a9dc-5e8516e435c5
-      m_Path: <Keyboard>/r
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Toggle Relative Mode
-      m_Flags: 0
-    m_Flags: 0
-  _toggleDynamicSpeed:
-    m_Name: Toggle Dynamic Speed
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 8ad384b9-e10d-40f5-a65e-86191645b75b
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 647ccbf7-22a2-4b85-83cd-8ddb4a5833a4
-      m_Path: <Keyboard>/p
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Toggle Dynamic Speed
-      m_Flags: 0
-    m_Flags: 0
-  _horizontalMovementAction:
-    m_Name: Horizontal Movement
-    m_Type: 2
-    m_ExpectedControlType: Vector3
-    m_Id: 5fc48fcc-d554-4f6f-b7fc-b6ee26cc8275
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 3D Vector
-      m_Id: b4d574e2-ca1d-477b-a35f-d4bb5a53bb2c
-      m_Path: 3DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Horizontal Movement
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 8b1f1743-d171-4fc1-ab90-a0ea24ab9465
-      m_Path: <Keyboard>/shift
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Horizontal Movement
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 12c2e7a4-88c6-4a9b-8632-2e50a45af1a9
-      m_Path: <Keyboard>/ctrl
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Horizontal Movement
-      m_Flags: 8
-    - m_Name: left
-      m_Id: f82253f3-acb7-423a-a697-4e43e3fcafa0
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Horizontal Movement
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 2b755cfb-0b4a-4f8b-81da-94201689906e
-      m_Path: <Keyboard>/rightArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Horizontal Movement
-      m_Flags: 8
-    - m_Name: forward
-      m_Id: 9a201344-91a3-43aa-a6fc-d5387891bd82
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Horizontal Movement
-      m_Flags: 8
-    - m_Name: backward
-      m_Id: da129d52-df51-4009-aa1c-c985ec2049c9
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Horizontal Movement
-      m_Flags: 8
-    m_Flags: 0
-  _scaleAction:
-    m_Name: Scale
-    m_Type: 2
-    m_ExpectedControlType: Axis
-    m_Id: 86c09ec1-7c6c-4aba-81ae-31e01966d5bf
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 1D Axis
-      m_Id: 9c245525-cc59-458a-9f20-d44dbb8d233b
-      m_Path: 1DAxis
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Scale
-      m_Flags: 4
-    - m_Name: positive
-      m_Id: 37b131bb-4e08-4e43-8412-134a6019a8bd
-      m_Path: <Keyboard>/pageUp
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Scale
-      m_Flags: 8
-    - m_Name: negative
-      m_Id: 80dfe20a-afcb-41c8-92e8-84736ccbeec2
-      m_Path: <Keyboard>/pageDown
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Scale
-      m_Flags: 8
-    m_Flags: 0
 --- !u!1 &1883326757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,6 +980,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 339defe50427c6740a80385d85dbc31c, type: 3}
+--- !u!1001 &7245618854534753820
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 193844611}
+    m_Modifications:
+    - target: {fileID: 82651200783705762, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82651200783705762, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82651200783705762, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82651200783705762, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 82651200783705762, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82651200783705762, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82651200783705762, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82651200783705762, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82651200783705762, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82651200783705762, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 659355045}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _sphere
+      value: 
+      objectReference: {fileID: 322028054}
+    - target: {fileID: 9161363133153919533, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: m_Name
+      value: Selection Sphere Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
 --- !u!4 &9100602257953406706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5716714046919173706, guid: 2cf8ff2cfefe7eb4f9cba0f3cf9d4829, type: 3}

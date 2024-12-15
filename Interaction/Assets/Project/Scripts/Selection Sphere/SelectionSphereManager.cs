@@ -26,6 +26,7 @@ namespace Project.SelectionSphere
         [SerializeField] private InputAction _toggleRelativeModeAction;
         [SerializeField] private InputAction _toggleDynamicSpeed;
         [SerializeField] private InputAction _horizontalMovementAction;
+        [SerializeField] private InputAction _verticalMovementAction;
         [SerializeField] private InputAction _scaleAction;
 
         private XRBaseInputInteractor[] _interactors;
@@ -74,7 +75,8 @@ namespace Project.SelectionSphere
             _toggleMoveModeAction.performed += context => { SetMoveMode(!_isMoveMode); };
             _toggleRelativeModeAction.performed += context => { _isRelativeMoveMode = !_isRelativeMoveMode; };
             _toggleDynamicSpeed.performed += context => { _isDynamicSpeed = !_isDynamicSpeed; };
-            _horizontalMovementAction.performed += context => { _moveDirection = context.ReadValue<Vector3>(); };
+            _horizontalMovementAction.performed += context => { _moveDirection.x = context.ReadValue<Vector2>().x; _moveDirection.z = context.ReadValue<Vector2>().y; };
+            _verticalMovementAction.performed += context => { _moveDirection.y = context.ReadValue<Vector2>().y; };
             _scaleAction.performed += context => { _scaleDirection = context.ReadValue<float>(); };
 
             SetMoveMode(false);
