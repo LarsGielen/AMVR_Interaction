@@ -5,12 +5,14 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 [RequireComponent(typeof(XRGrabInteractable))]
 public class CorrespondMovement : MonoBehaviour
 {
-    [SerializeField] Transform referenceTransform;
+    [SerializeField] private Transform referenceTransform;
+    [SerializeField] private Transform dummySphere;
 
     private XRGrabInteractable grabInteractable;
     
     private Vector3 previousPosition;
     private bool holdingItem = false;
+    private SelectEnterEventArgs onSelectArgs;
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +23,18 @@ public class CorrespondMovement : MonoBehaviour
         grabInteractable.selectEntered.AddListener(OnGrabbed);
         grabInteractable.selectExited.AddListener(OnReleased);
         previousPosition = transform.position;
-
-        grabInteractable.selectEntered.AddListener((args) => RemoveReference(args));
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!holdingItem) return;
+
+        float distanceFromDummyCenter = Vector3.Distance(dummySphere.position, transform.position);
+        if (distanceFromDummyCenter > dummySphere.localScale.x) {
+            RemoveReference(onSelectArgs);
+            return;
+        }
 
         float scale = referenceTransform.localScale.x/transform.localScale.x;
 
@@ -40,7 +46,10 @@ public class CorrespondMovement : MonoBehaviour
         previousPosition = transform.position;
     }
 
-    public void Init(Transform reference) => referenceTransform = reference;
+    public void Init(Transform reference, Transform dummySphere) {
+        this.referenceTransform = reference;
+        this.dummySphere = dummySphere;
+    }
 
     public void RemoveReference(SelectEnterEventArgs args) {
         var interactionManager = grabInteractable.interactionManager;
@@ -50,6 +59,9 @@ public class CorrespondMovement : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    private void OnGrabbed(SelectEnterEventArgs arg0) => holdingItem = true;
+    private void OnGrabbed(SelectEnterEventArgs arg0) {
+        holdingItem = true;
+        onSelectArgs = arg0;
+    }
     private void OnReleased(SelectExitEventArgs arg0) => holdingItem = false;
 }
