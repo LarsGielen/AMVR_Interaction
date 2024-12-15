@@ -76,8 +76,8 @@ namespace Project.SelectionSphere
             _toggleRelativeModeAction.performed += context => { _isRelativeMoveMode = !_isRelativeMoveMode; };
             _toggleDynamicSpeed.performed += context => { _isDynamicSpeed = !_isDynamicSpeed; };
             _horizontalMovementAction.performed += context => { _moveDirection.x = context.ReadValue<Vector2>().x; _moveDirection.z = context.ReadValue<Vector2>().y; };
-            _verticalMovementAction.performed += context => { _moveDirection.y = context.ReadValue<Vector2>().y; };
-            _scaleAction.performed += context => { _scaleDirection = context.ReadValue<float>(); };
+            _verticalMovementAction.performed += context => { _moveDirection.y = Mathf.Abs(context.ReadValue<Vector2>().y) > 0.8f ?  context.ReadValue<Vector2>().y : 0; };
+            _scaleAction.performed += context => { _scaleDirection = Mathf.Abs(context.ReadValue<Vector2>().x) > 0.8f ?  context.ReadValue<Vector2>().x : 0; };
 
             SetMoveMode(false);
         }
@@ -100,6 +100,7 @@ namespace Project.SelectionSphere
             _toggleRelativeModeAction.Enable();
             _toggleDynamicSpeed.Enable();
             _horizontalMovementAction.Enable();
+            _verticalMovementAction.Enable();
             _scaleAction.Enable();
         }
 
@@ -108,6 +109,7 @@ namespace Project.SelectionSphere
             _toggleRelativeModeAction.Disable();
             _toggleDynamicSpeed.Disable();
             _horizontalMovementAction.Disable();
+            _verticalMovementAction.Disable();
             _scaleAction.Disable();
         }
 

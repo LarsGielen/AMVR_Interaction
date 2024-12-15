@@ -827,10 +827,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1732804936295086977, guid: 92134f0b896756e4abfe61b458584694, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396379109902840501, guid: 92134f0b896756e4abfe61b458584694, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3592145862114652713, guid: 92134f0b896756e4abfe61b458584694, type: 3}
       propertyPath: m_HandMenuUIGameObject
       value: 
       objectReference: {fileID: 1730104012838258000}
+    - target: {fileID: 4800207803515388633, guid: 92134f0b896756e4abfe61b458584694, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8785844355474043799, guid: 92134f0b896756e4abfe61b458584694, type: 3}
       propertyPath: m_Name
       value: XR Origin
@@ -1036,6 +1048,62 @@ PrefabInstance:
       propertyPath: _sphere
       value: 
       objectReference: {fileID: 322028054}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _scaleAction.m_Processors
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _scaleAction.m_ExpectedControlType
+      value: Vector2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _verticalMovementAction.m_Processors
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _verticalMovementAction.m_ExpectedControlType
+      value: Vector2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _scaleAction.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _scaleAction.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 3a7bd6fc-da4d-4713-902e-3587d2e25f19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _scaleAction.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 3a7bd6fc-da4d-4713-902e-3587d2e25f19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _scaleAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <XRController>{LeftHand}/{Primary2DAxis}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _scaleAction.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <XRController>{LeftHand}/{Primary2DAxis}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _scaleAction.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Scale
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _scaleAction.m_SingletonActionBindings.Array.data[0].m_Processors
+      value: StickDeadzone
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _scaleAction.m_SingletonActionBindings.Array.data[1].m_Processors
+      value: AxisDeadzone
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _verticalMovementAction.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <XRController>{LeftHand}/{Primary2DAxis}
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603150050669985582, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
+      propertyPath: _verticalMovementAction.m_SingletonActionBindings.Array.data[0].m_Processors
+      value: StickDeadzone
+      objectReference: {fileID: 0}
     - target: {fileID: 9161363133153919533, guid: 1d964510dbccd384cb4a15e83d53c070, type: 3}
       propertyPath: m_Name
       value: Selection Sphere Manager
