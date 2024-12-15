@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HandMenuUIGameObject: {fileID: 0}
-  m_MenuHandedness: 3
+  m_MenuHandedness: 1
   m_HandMenuUpDirection: 1
   m_LeftPalmAnchor: {fileID: 6954581354729457721}
   m_RightPalmAnchor: {fileID: 9053342708855812112}
@@ -3408,8 +3408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bc72d2ecc8add47b2fe00d40318500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LeftHand: {fileID: 0}
-  m_RightHand: {fileID: 0}
+  m_LeftHand: {fileID: 7581776704219016453}
+  m_RightHand: {fileID: 8189830866189096824}
   m_LeftController: {fileID: 1678280336003696407}
   m_RightController: {fileID: 4192454042259844628}
   m_TrackedHandModeStarted:
