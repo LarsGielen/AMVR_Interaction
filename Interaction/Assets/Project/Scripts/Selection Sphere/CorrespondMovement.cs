@@ -31,7 +31,7 @@ public class CorrespondMovement : MonoBehaviour
         if (!holdingItem) return;
 
         float distanceFromDummyCenter = Vector3.Distance(dummySphere.position, transform.position);
-        if (distanceFromDummyCenter > dummySphere.localScale.x) {
+        if (distanceFromDummyCenter > dummySphere.localScale.x/2) {
             RemoveReference(onSelectArgs);
             return;
         }

@@ -59,7 +59,7 @@ namespace Project.SelectionSphere
             // Match rotation
             duplicate.transform.rotation = original.transform.rotation;
 
-            duplicate.AddComponent<CorrespondMovement>().Init(original.transform);
+            duplicate.AddComponent<CorrespondMovement>().Init(original.transform, copySphere);
 
             // Add to the list of copied items
             copiedItems.Add(duplicate);
