@@ -9,7 +9,7 @@ namespace Project
         private struct Area {
             public Vector3 position;
             public Vector3 areaSize;
-            public float spacing;
+            [Range(0.1f, 2f)] public float spacing;
             public int seed;
         }
 

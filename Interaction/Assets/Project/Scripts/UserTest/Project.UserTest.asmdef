@@ -1,8 +1,8 @@
 {
-    "name": "Project",
-    "rootNamespace": "Project",
+    "name": "Project.UserTest",
+    "rootNamespace": "Project.UserTest",
     "references": [
-        "GUID:85c9606433fb4b84fa2df729703d2657"
+        "GUID:fe685ec1767f73d42b749ea8045bfe43"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -6924231869158905727}
   - component: {fileID: -5146270561855930901}
   - component: {fileID: 5080339488750024363}
+  - component: {fileID: 6130872914684242168}
+  - component: {fileID: 5960406191118562866}
   m_Layer: 10
   m_Name: Item Coin
   m_TagString: Untagged
@@ -120,10 +122,10 @@ MonoBehaviour:
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5080339488750024363}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 5960406191118562866}
+        m_TargetAssemblyTypeName: Project.OutlineItem, Project
+        m_MethodName: StartHover
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -135,10 +137,10 @@ MonoBehaviour:
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5080339488750024363}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 5960406191118562866}
+        m_TargetAssemblyTypeName: Project.OutlineItem, Project
+        m_MethodName: EndHover
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -248,6 +250,34 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &6130872914684242168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665355911491079111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2274446d2093684ead72ee818965034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTarget: 0
+  _isStarter: 0
+--- !u!114 &5960406191118562866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665355911491079111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65554c485ce383b43918cde7258bc8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hoverOutlineColor: {r: 0.019607844, g: 0.8196079, b: 0, a: 1}
+  _hoverOutlineWidth: 2
 --- !u!1001 &8292298207397229030
 PrefabInstance:
   m_ObjectHideFlags: 0
